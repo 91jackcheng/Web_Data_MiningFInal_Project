@@ -2,6 +2,7 @@
  * Created by diaosuyi on 12/21/16.
  */
 
+import org.ansj.domain.Result;
 import org.ansj.domain.Term;
 import org.ansj.splitWord.analysis.ToAnalysis;
 
@@ -17,13 +18,15 @@ public class wordSpliter {
     wordSpliter(String text){
         text = text.replaceAll(" ", "");
         question = text;
-        translatedQuestion = ToAnalysis.parse(question);
+        Result result = ToAnalysis.parse(question);
+        translatedQuestion = result.getTerms();
     }
 
     //reread question in to the wordSpliter
     public void reReadQuestionFromString(String questionIn){
         question = questionIn;
-        translatedQuestion = ToAnalysis.parse(question);
+        Result result = ToAnalysis.parse(question);
+        translatedQuestion = result.getTerms();
     }
 
 
