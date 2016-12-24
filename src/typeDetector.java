@@ -1,16 +1,27 @@
+import java.util.EmptyStackException;
+
 /**
  * Created by diaosuyi on 12/23/16.
  */
 
 
 public class typeDetector {
+    //the question
     private String question;
-    private String type;
+    //the question type;
+    private TYPE type;
+
+    private questionParser QP;
+
+    //if the question can be solved using simple type, then store the simple
+    //type in here.
+    private String typeIfSimpleType;
 
     typeDetector(String input)
     {
         question = input;
-        type = "";
+        type = TYPE.UNDECIDED;
+        typeIfSimpleType = "";
         answerTypeDetect();
     }
 
@@ -30,15 +41,46 @@ public class typeDetector {
     void answerTypeDetect() {
         for (String[] one : typeDetectora)
             if (match(question, one)) {
-                type = one[0];
-                //System.out.println(answerType);
+                //decided the question is simple
+                typeIfSimpleType = one[0];
+                type = TYPE.SIMPLE;
+
                 return;
             }
+        //if does not fit into simple type, then must be complex type
+        //must construct questionParser for further parsing.
+        QP = new questionParser(question);
+        //get the type of this comple question.
+        type = QP.getType();
+
     }
 
-    public String getType()
+    public String[] getType()
     {
-        return type;
+        //first element in answer is type,
+        //second element in answer is the attribute
+        String[] answer = {"",""};
+        switch (type){
+            case SIMPLE:
+                answer[0] = "Simple";
+                answer[1] = typeIfSimpleType;
+                break;
+
+            case COMPLEX_CORED:
+                answer[0] = "Cored";
+                answer[1] = QP.getParsedQuestion();
+                break;
+
+            case COMPLEX_DISCORED:
+                answer[0] = "Discored";
+                answer[1] = QP.getParsedQuestion();
+                break;
+
+            case UNDECIDED:
+                throw new EmptyStackException();
+
+        }
+        return answer;
     }
 
     boolean match(String word, String[] matchWords) {
@@ -48,7 +90,16 @@ public class typeDetector {
         return false;
     }
 
-    public static void main(String[] args){
+    public enum TYPE{
+        SIMPLE, COMPLEX_CORED, COMPLEX_DISCORED, UNDECIDED
+    }
 
+    public static void main(String[] args){
+        String a = "王莽建立的朝代叫什么？ \t傻逼超";
+
+        typeDetector haha = new typeDetector(a);
+
+        System.out.println(haha.getType()[0]);
+        System.out.println(haha.getType()[1]);
     }
 }
