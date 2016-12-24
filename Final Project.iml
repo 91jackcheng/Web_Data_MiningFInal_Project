@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.ansj:ansj_seg:5.0.4" level="project" />
+    <orderEntry type="library" name="edu.stanford.nlp:stanford-corenlp:3.5.2" level="project" />
   </component>
 </module>

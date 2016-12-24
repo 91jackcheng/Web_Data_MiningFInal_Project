@@ -1,6 +1,8 @@
 /**
  * Created by diaosuyi on 12/23/16.
  */
+
+
 public class typeDetector {
     private String question;
     private String type;
@@ -51,7 +53,6 @@ public class typeDetector {
     }
 
     public static void main(String[] args){
-        typeDetector a = new typeDetector("谁是周杰伦");
-        System.out.print(a.getType());
+
     }
 }
