@@ -88,7 +88,7 @@ public class questionAnswerer {
                     if(!find1){
                         //Ngram
                         NGramGeneratorString nggs = new NGramGeneratorString(str);
-                        output = nggs.getOutput()[0];
+                        output = nggs.getOutput();
 
                     }
                     break;
@@ -115,7 +115,7 @@ public class questionAnswerer {
                     if(!find2){
                         //Ngram
                         NGramGeneratorString nggs = new NGramGeneratorString(aaa);
-                        output = nggs.getOutput()[0];
+                        output = nggs.getOutput();
                     }
                     break;
 
@@ -155,7 +155,7 @@ public class questionAnswerer {
                     if(!find4){
                         //NGram
                         NGramGeneratorString nggs = new NGramGeneratorString(xixi);
-                        output = nggs.getOutput()[0];
+                        output = nggs.getOutput();
                     }
                     break;
 
@@ -176,7 +176,7 @@ public class questionAnswerer {
                     if(!find5){
                         //NGram
                         NGramGeneratorString nggs = new NGramGeneratorString(xixixi);
-                        output = nggs.getOutput()[0];
+                        output = nggs.getOutput();
                     }
                     break;
 
@@ -197,7 +197,7 @@ public class questionAnswerer {
                     if(!find6){
                         //NGram
                         NGramGeneratorString nggs = new NGramGeneratorString(xixixih);
-                        output = nggs.getOutput()[0];
+                        output = nggs.getOutput();
                     }
                     break;
 
@@ -206,7 +206,7 @@ public class questionAnswerer {
             //put it in NGram and get the answer.
             String xixixih = Arrays.toString(luceneData);
             NGramGeneratorString nggs = new NGramGeneratorString(xixixih);
-            output = nggs.getOutput()[0];
+            output = nggs.getOutput();
         }
     }
 

@@ -121,20 +121,20 @@ public class typeDetector {
 //        Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
 //
 //        System.out.println(anstdl);
-        NGramGeneratorString a = new NGramGeneratorString("用五条等距离的平行横线来记录音符的形式叫什么谱 《相约九八》是王菲和哪位内地著名女歌手合唱的 歌曲《达坂城的姑娘》中“你要是嫁人，不要嫁给别人”，下一句是");
-        System.out.println(a.getOutput()[0]);
+//        NGramGeneratorString a = new NGramGeneratorString("用五条等距离的平行横线来记录音符的形式叫什么谱 《相约九八》是王菲和哪位内地著名女歌手合唱的 歌曲《达坂城的姑娘》中“你要是嫁人，不要嫁给别人”，下一句是");
+//        System.out.println(a.getOutput()[0]);
 
-//        List<String> res = null;
-//        try {
-//            res = Index.searchOnline("长白山上的湖叫什么");
-//
-//            questionAnswerer qa = new questionAnswerer("长白山上的湖叫什么", res.toArray(new String[0]));
-//            System.out.print(qa.getOutput());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        List<String> res = null;
+        try {
+            res = Index.searchOnline("长白山上的湖叫什么");
+
+            questionAnswerer qa = new questionAnswerer("长白山上的湖叫什么", res.toArray(new String[0]));
+            System.out.print(qa.getOutput());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 }

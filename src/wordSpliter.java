@@ -18,7 +18,8 @@ public class wordSpliter {
 
     wordSpliter(String text){
         text = text.replaceAll(" ", "");
-        text = text.replaceAll("，", "").replaceAll(".", "").replaceAll(".", "");
+        text = text.replaceAll("，", "");
+        text = text.replaceAll(",", "");
         text = text.replaceAll("。", "");
         text = text.replaceAll("、", "");
         text = text.replaceAll("\n", "");

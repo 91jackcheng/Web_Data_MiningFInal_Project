@@ -12,6 +12,7 @@ public class NGramGeneratorString {
 
     private String[] finalList;
 
+
     NGramGeneratorString(String str) {
         input = str;
         finalList = new String[20];
@@ -25,8 +26,13 @@ public class NGramGeneratorString {
     }
 
     //get the final out put of the NGramGenerator
-    public String[] getOutput(){
-        return finalList;
+    public String getOutput(){
+        int i = 0;
+
+        while(finalList[i].equals("的")){
+            i++;
+        }
+        return finalList[i];
     }
 
     //generate the Final Answer
@@ -64,7 +70,8 @@ public class NGramGeneratorString {
 
     //function to generateNgrams
     private void generateNgrams(int N) {
-            wordSpliter ws = new wordSpliter(input);
+            String aa = input;
+            wordSpliter ws = new wordSpliter(aa);
 
             String[] tokens = ws.output().split("\\s+"); //split sentence into tokens
 
@@ -82,5 +89,10 @@ public class NGramGeneratorString {
 
     }//End of method
 
+//    public static boolean matchStopWord(String input) throws IOException{
+//        Scanner sa = new Scanner(new File("stopwords.txt"));
+//    }
+
 
 }
+
