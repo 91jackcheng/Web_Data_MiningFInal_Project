@@ -42,12 +42,12 @@ public class questionAnswerer {
             //get the simple question type
             String questionType = td.getType()[1];
             switch(questionType){
-                case "sentenceAfter":
+                case "sentenceafter":
                     String[] result = luceneData[0].split(",");
                     output = result[0];
                     break;
 
-                case "sentenceBefore":
+                case "sentencebefore":
                     String[] result1 = luceneData[0].split(",");
                     output = result1[0];
                     break;
