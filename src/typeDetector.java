@@ -2,10 +2,13 @@ import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TypedDependency;
 import edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructure;
+import index.Index;
+import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.IOException;
 import java.util.Collection;
 import java.util.EmptyStackException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,14 +32,13 @@ public class typeDetector {
     typeDetector(String input)
     {
         question = input;
-        type = TYPE.UNDECIDED;
+        type = TYPE.COMPLEX_DISCORED;
         typeIfSimpleType = "";
         answerTypeDetect();
     }
 
 
     private String[][] typeDetectora = new String[][]{
-            {"order", "第几"},
             {"sentencebefore", "上一句","前一句","上句","前半句"},
             {"sentenceafter","下一句","后一句","下句","后半句"},
             {"dynasty", "哪个朝", "朝代是", "王朝是", "哪个王朝"},
@@ -45,7 +47,7 @@ public class typeDetector {
             {"continent", "哪块大陆", "哪个大陆", "哪一个大陆", "哪一块大陆", "大陆是", "大洲是", "哪个大洲", "哪一个大洲","哪个大洋","哪一个大洋"},
             {"date", "哪个时", "什么时候", "哪一月", "哪一天", "几月", "几日", "几号", "几点", "几时", "何时", "何日", "哪月", "哪天"},
             {"years", "公元多少", "公元前多少", "哪一年", "第几年", "年份是", "哪年", "何年"},
-            {"number", "几", "多少", "有多少", "多远", "多重", "多大", "多小", "多宽", "多热", "多快", "多少","多久","多长", "海拔是", "高度是", "长度是", "距离是", "的海拔", "的长度", "的距离"},
+            {"number", "第几", "几", "多少", "有多少", "多远", "多重", "多大", "多小", "多宽", "多热", "多快", "多少","多久","多长", "海拔是", "高度是", "长度是", "距离是", "的海拔", "的长度", "的距离"},
     };
 
     void answerTypeDetect() {
@@ -86,9 +88,6 @@ public class typeDetector {
                 answer[1] = QP.getParsedQuestion();
                 break;
 
-            case UNDECIDED:
-                throw new EmptyStackException();
-
         }
         return answer;
     }
@@ -101,7 +100,7 @@ public class typeDetector {
     }
 
     public enum TYPE{
-        SIMPLE, COMPLEX_CORED, COMPLEX_DISCORED, UNDECIDED
+        SIMPLE, COMPLEX_CORED, COMPLEX_DISCORED
     }
 
     public static void main(String[] args) throws IOException{
@@ -122,8 +121,20 @@ public class typeDetector {
 //        Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
 //
 //        System.out.println(anstdl);
-//        NGramGenerator a = new NGramGenerator("input.txt");
-//        System.out.println(a.getOutput());
+        NGramGeneratorString a = new NGramGeneratorString("用五条等距离的平行横线来记录音符的形式叫什么谱 《相约九八》是王菲和哪位内地著名女歌手合唱的 歌曲《达坂城的姑娘》中“你要是嫁人，不要嫁给别人”，下一句是");
+        System.out.println(a.getOutput()[0]);
+
+//        List<String> res = null;
+//        try {
+//            res = Index.searchOnline("长白山上的湖叫什么");
+//
+//            questionAnswerer qa = new questionAnswerer("长白山上的湖叫什么", res.toArray(new String[0]));
+//            System.out.print(qa.getOutput());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }

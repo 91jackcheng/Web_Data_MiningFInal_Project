@@ -3,17 +3,17 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by diaosuyi on 12/24/16.
+ * Created by diaosuyi on 12/25/16.
  */
-public class NGramGenerator {
-    private String fileName;
+public class NGramGeneratorString {
+    private String input;
     private ArrayList<String> nGramList;
     private Map<String, Integer> nGramMap;
 
     private String[] finalList;
 
-    NGramGenerator(String file) throws IOException{
-        fileName = file;
+    NGramGeneratorString(String str) {
+        input = str;
         finalList = new String[20];
         nGramMap = new HashMap<String, Integer>();
 
@@ -22,10 +22,6 @@ public class NGramGenerator {
         generateNgrams(2);
         generateNgrams(3);
         generateFinalAnswer();
-    }
-
-    NGramGenerator(String str, int a){
-
     }
 
     //get the final out put of the NGramGenerator
@@ -53,7 +49,6 @@ public class NGramGenerator {
         int i = 0;
         while(valueIt.hasNext() && i < 20){
             finalList[i] = getKeyFromValue(nGramMap, valueIt.next());
-            System.out.println(valueIt.next());
             i++;
         }
     }
@@ -68,11 +63,8 @@ public class NGramGenerator {
     }
 
     //function to generateNgrams
-    private void generateNgrams(int N) throws IOException{
-        Scanner fileScanner = new Scanner(new File(fileName));
-        while(fileScanner.hasNext()) {
-            String nextln = fileScanner.nextLine();
-            wordSpliter ws = new wordSpliter(nextln);
+    private void generateNgrams(int N) {
+            wordSpliter ws = new wordSpliter(input);
 
             String[] tokens = ws.output().split("\\s+"); //split sentence into tokens
 
@@ -87,9 +79,8 @@ public class NGramGenerator {
                 //Add n-gram to a list
                 nGramList.add(s);
             }
-        }
-    }//End of method
 
+    }//End of method
 
 
 }

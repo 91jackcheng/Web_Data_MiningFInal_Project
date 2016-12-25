@@ -18,7 +18,7 @@ public class questionParser {
     private typeDetector.TYPE type;
 
     questionParser(String input1){
-        type = typeDetector.TYPE.UNDECIDED;
+        type = typeDetector.TYPE.COMPLEX_DISCORED;
         input = input1;
         String modelpath="lib/models/chinesePCFG.ser.gz";
         lp = LexicalizedParser.loadModel(modelpath);
