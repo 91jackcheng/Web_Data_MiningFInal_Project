@@ -15,7 +15,7 @@ import static index.Index.searchIndex;
 public class Main {
 
     public static void main(String[] args) throws IOException{
-        initIndex(Index.SENTENCE);
+        //initIndex(Index.SENTENCE);
         Scanner s = new Scanner(new File("questions.txt"));
         FileWriter output = new FileWriter("answer.txt");
 
