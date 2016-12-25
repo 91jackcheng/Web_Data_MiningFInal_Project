@@ -24,6 +24,7 @@ public class wordSpliter {
         text = text.replaceAll("\\?", "");
         text = text.replaceAll("\\.", "");
         text = text.replaceAll("。", "");
+        text = text.replaceAll(">", "");
         text = text.replaceAll("、", "");
         text = text.replaceAll("\n", "");
         question = text;

@@ -29,7 +29,8 @@ public class NGramGeneratorString {
     public String getOutput(){
         int i = 0;
 
-        while(finalList[i].equals("的")||finalList[i].equals("我们")||finalList[i].equals("答案")||finalList[i].equals("哪个")){
+        while(finalList[i].equals("的")||finalList[i].equals("我们")||finalList[i].equals("答案")||finalList[i].equals("哪个")
+                ||finalList[i].equals("是")||finalList[i].equals("在")||finalList[i].equals("什么")){
             i++;
         }
         return finalList[i];
