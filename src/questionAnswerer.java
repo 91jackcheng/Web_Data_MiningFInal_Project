@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 import index.Index;
 
 /**
- * Created by diaosuyi on 12/24/16.
+ * Created by 91jackcheng on 12/24/16.
  */
 public class questionAnswerer {
     private String question;

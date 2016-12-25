@@ -7,7 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 
 /**
- * Created by diaosuyi on 12/23/16.
+ * Created by 91jackcheng on 12/23/16.
  */
 public class questionParser {
     private LexicalizedParser lp;

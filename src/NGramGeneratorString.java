@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by diaosuyi on 12/25/16.
+ * Created by 91jackcheng on 12/25/16.
  */
 public class NGramGeneratorString {
     private String input;

@@ -10,7 +10,7 @@ import static index.Index.initIndex;
 import static index.Index.searchIndex;
 
 /**
- * Created by diaosuyi on 12/25/16.
+ * Created by 91jackcheng on 12/25/16.
  */
 public class Main {
 
