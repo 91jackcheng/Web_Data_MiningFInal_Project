@@ -6,6 +6,8 @@ import edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStruct
 import java.io.IOException;
 import java.util.Collection;
 import java.util.EmptyStackException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by diaosuyi on 12/23/16.
@@ -112,8 +114,6 @@ public class typeDetector {
 //
 //        String modelpath="lib/models/chinesePCFG.ser.gz";
 //        LexicalizedParser lp = LexicalizedParser.loadModel(modelpath);
-//
-//        wordSpliter wss = new wordSpliter(a);
 //        String s = wss.output();
 //
 //        Tree t1 = lp.parse(s);
@@ -121,11 +121,8 @@ public class typeDetector {
 //        Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
 //
 //        System.out.println(anstdl);
-        NGramGenerator a = new NGramGenerator("input.txt");
-        System.out.println(a.getOutput());
-//        String a = "昨天，中国共产党第十八次全国代表大会胜利闭幕了。这些天来，各位记者朋友们对这次大会作了大量报道，向世界各国传递了许多“中国声音”。大家很敬业、很专业、很辛苦，在此，我代表十八大大会秘书处，向你们表示衷心的感谢。\n";
-//        wordSpliter b = new wordSpliter(a);
-//
-//        System.out.println(b.output());
+//        NGramGenerator a = new NGramGenerator("input.txt");
+//        System.out.println(a.getOutput());
+
     }
 }
