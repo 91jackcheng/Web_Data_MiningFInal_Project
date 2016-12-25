@@ -68,7 +68,8 @@ public class questionParser {
                     ChineseGrammaticalStructure gs1 = new ChineseGrammaticalStructure(t1);
                     Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
 
-                    next = ans;
+//                    next = ans;
+                    next = 1+"\t"+word+"\t"+attr[1]+"\t"+str+"\t"+ans+"\t"+tdl+"\t"+anstdl+"\n";
                 }
             }
             boolean ispn = false;
@@ -82,7 +83,7 @@ public class questionParser {
                     String re = dep.dep().word();
 
                     String ans = str.replaceAll(re, (dep.dep().word().equals("是")?"是":"")+attr[1]);
-                    ans = ans.replaceAll("[\\?？]", "");
+                    ans = ans.replaceAll("[\\?？]", "。");
                     String word = (dep.dep().word().equals("是")?"是":"PN");
 
                     wordSpliter wss = new wordSpliter(ans);
@@ -92,7 +93,8 @@ public class questionParser {
                     ChineseGrammaticalStructure gs1 = new ChineseGrammaticalStructure(t1);
                     Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
 
-                    next = ans;
+//                    next = ans;
+                    next = 2+"\t"+word+"\t"+attr[1]+"\t"+str+"\t"+ans+"\t"+tdl+"\t"+anstdl+"\n";
                 }
             }
 

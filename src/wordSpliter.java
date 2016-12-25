@@ -18,6 +18,10 @@ public class wordSpliter {
 
     wordSpliter(String text){
         text = text.replaceAll(" ", "");
+        text = text.replaceAll("，", "");
+        text = text.replaceAll("。", "");
+        text = text.replaceAll("、", "");
+        text = text.replaceAll("\n", "");
         question = text;
         Result result = ToAnalysis.parse(question);
         translatedQuestion = result.getTerms();

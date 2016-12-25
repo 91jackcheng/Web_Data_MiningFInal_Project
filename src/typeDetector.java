@@ -1,3 +1,10 @@
+import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
+import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.trees.TypedDependency;
+import edu.stanford.nlp.trees.international.pennchinese.ChineseGrammaticalStructure;
+
+import java.io.IOException;
+import java.util.Collection;
 import java.util.EmptyStackException;
 
 /**
@@ -94,12 +101,31 @@ public class typeDetector {
         SIMPLE, COMPLEX_CORED, COMPLEX_DISCORED, UNDECIDED
     }
 
-    public static void main(String[] args){
-        String a = "王莽建立的朝代叫什么？ \t傻逼超";
+    public static void main(String[] args) throws IOException{
+//        String a = "王莽建立的朝代叫什么？ \t新朝";
+//
+//        typeDetector haha = new typeDetector(a);
+//
+//        System.out.println(haha.getType()[0]);
+//        System.out.println(haha.getType()[1]);
 
-        typeDetector haha = new typeDetector(a);
-
-        System.out.println(haha.getType()[0]);
-        System.out.println(haha.getType()[1]);
+//
+//        String modelpath="lib/models/chinesePCFG.ser.gz";
+//        LexicalizedParser lp = LexicalizedParser.loadModel(modelpath);
+//
+//        wordSpliter wss = new wordSpliter(a);
+//        String s = wss.output();
+//
+//        Tree t1 = lp.parse(s);
+//        ChineseGrammaticalStructure gs1 = new ChineseGrammaticalStructure(t1);
+//        Collection<TypedDependency> anstdl = gs1.typedDependenciesCollapsedTree();
+//
+//        System.out.println(anstdl);
+        NGramGenerator a = new NGramGenerator("input.txt");
+        System.out.println(a.getOutput());
+//        String a = "昨天，中国共产党第十八次全国代表大会胜利闭幕了。这些天来，各位记者朋友们对这次大会作了大量报道，向世界各国传递了许多“中国声音”。大家很敬业、很专业、很辛苦，在此，我代表十八大大会秘书处，向你们表示衷心的感谢。\n";
+//        wordSpliter b = new wordSpliter(a);
+//
+//        System.out.println(b.output());
     }
 }
